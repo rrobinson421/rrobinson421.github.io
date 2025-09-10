@@ -74,6 +74,7 @@ header img {
   border-radius: 50%;
   margin: 10px 0;
   border: 3px solid white;
+  box-shadow: 0 0 10px black;
 }
 
 .address {
@@ -138,8 +139,11 @@ section a:hover {
 .outline {
   border: 2px solid rgb(255, 255, 255, .5);
   border-radius: 10px;
-  margin: 10px;
+  margin: 10px auto;
   padding: 10px;
+  max-width: calc(100vw * 2 /3 );
+  width: 100%;  
+  ;
 }
 
 /**************   Projects   *****************/
@@ -153,12 +157,20 @@ section a:hover {
 .card img {
   width: 100%;
   height: auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 10px;
+  transform: scale(0.95);
+  outline: 5px solid rgb(255, 255, 255, .5);
+}
+
+.card img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .card {
-  outline: auto;
-  box-shadow: inset 0 0 5px black;
   background-color: rgb(118, 108, 206);
+  height: fit-content
 }
 
 .project-ul {
@@ -197,7 +209,7 @@ section a:hover {
   height: auto;
   padding: 20px;
   background-color: rgb(118, 108, 206);
-  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255, .5);
   color: white;
   outline: auto;
   box-shadow: inset 0 0 5px black;
@@ -207,7 +219,7 @@ input {
   width: 100%;
   padding: 10px;
   margin: 5px 0 15px 0;
-  border: 1px solid #ccc;
+  border: 2px solid rgb(255, 255, 255, .5);
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -217,7 +229,7 @@ textarea {
   height: 150px;
   padding: 10px;
   margin: 5px 0 15px 0;
-  border: 1px solid #ccc;
+  border: 2px solid rgb(255, 255, 255, .5);
   border-radius: 5px;
   box-sizing: border-box;
 }
