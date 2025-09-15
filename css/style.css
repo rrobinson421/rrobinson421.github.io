@@ -7,8 +7,9 @@ body {
 
 /****************   Nav Section **********************/
 nav {
-  background-color: rgb(118, 108, 206);
+  background-color: rgb(39 64 96);
   color: white;
+  outline: 1px solid rgb(255, 255, 255, .5);
 
   display: flex;
   vertical-align: auto;
@@ -37,8 +38,9 @@ nav a[href*="contact"] {
 
 /***********************  Footer Section   **************************/
 footer {
-	background-color: rgb(118, 108, 206);
+	background-color: rgb(39 64 96);
   padding: 1 rem;
+  outline: 1px solid rgb(255, 255, 255, .5);
 
   display: flex;
   justify-content: center;
@@ -57,9 +59,10 @@ footer a:hover {
 
 /*********** Splash Page ************************/
 header {
-    background-color: rgb(118, 108, 206);
+    background-color: rgb(39 64 96);
     color: white;
     text-align: center;
+    outline: 1px solid rgb(255, 255, 255, .5);
 }
 
 header h1 {
@@ -78,19 +81,21 @@ header img {
 }
 
 .address {
-  background-color: rgb(118, 108, 206);
+  background-color: rgb(39 64 96);
   color: white;
   text-align: center;
   font-size: 18px;
   padding: 5px;
+  outline: 1px solid rgb(255, 255, 255, .5);
 }
 
 .tagline {
-  background-color: rgb(118, 108, 206);
+  background-color: rgb(39 64 96);
   color: white;
   text-align: center;
   font-size: 18px;
   padding: 5px;
+  outline: 1px solid rgb(255, 255, 255, .5);
 }
 
 /************* Sections ********************/
@@ -99,7 +104,7 @@ hr {
 }
 
 section h3 {
-  background-color: rgb(118, 108, 206);
+  background-color: rgb(39 64 96);
   text-align: center;
   color: white;
   font-family: 'Times New Roman', serif;
@@ -107,7 +112,7 @@ section h3 {
 }
 
 section dl {
-  background-color: rgb(118, 108, 206);
+  background-color: rgb(51 92 129);
   color: white;
   padding: 5px 0;
   display: grid;
@@ -117,7 +122,7 @@ section dl {
 }
 
 section ul {
-  background-color: rgb(118, 108, 206);
+  background-color: rgb(51 92 129);
   color: white;
   list-style-type: circle;
   padding: auto 5px 0 20px 40px;
@@ -169,8 +174,9 @@ section a:hover {
 }
 
 .card {
-  background-color: rgb(118, 108, 206);
-  height: fit-content
+  background-color: rgb(51 92 129);
+  height: fit-content;
+  border-radius: 10px;
 }
 
 .project-ul {
@@ -208,7 +214,7 @@ section a:hover {
   margin: 30px auto;
   height: auto;
   padding: 20px;
-  background-color: rgb(118, 108, 206);
+  background-color: rgb(51 92 129);
   border: 2px solid rgb(255, 255, 255, .5);
   color: white;
   outline: auto;
