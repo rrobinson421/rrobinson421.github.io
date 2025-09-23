@@ -5,75 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Ryan Robinson</title>
+    <script src="js/git_js.js" defer></script>
   </head>
-  <body style="background-color: rgb(27 40 69);">
+  <body style="background-color: rgb(0, 0, 0);">
     <nav>
         <p>Ryan Robinson</p>
         <a href="contact.html">Contact Ryan Robinson</a>
     </nav>
     
     <header>
-        <h1>Ryan Robinson</h1>
-        <img src = "images/headshot.jpg" alt = "Ryan Robinson Headshot" width = "250" height = "250">
+        <div class="child left">
+            <h1>Ryan Robinson</h1>
+            <img src = "images/headshot.jpg" alt = "Ryan Robinson Headshot" width = "250" height = "250" style="cursor: pointer;" onclick="coinflip()">
+        </div>
+        <div clas="child right">
+            <p class="address">377 Prestwick Drive, Hoschton, GA 30548 &#8226; (817)-404-7430 &#8226; ryanrobinson421@gmail.com</p>
+            <p class="tagline">Aspiring Software Engineer utilizing Cybersecurity skills and AGI technologies.</p>
+            <p class="tagline">Education: University of Georgia &#8226; 3.95 &#8226; Bachelor of Computer Science &#8226; December 2025</p>
+            <p class="tagline">Honors: Dean's List (2022 - 2024) &#8226; Presidential Scholar (2023 - 2025)</p>
+            <p class="tagline">Experience: <a href="https://amazon.jobs/content/en/job-categories/fulfillment-center-warehouse-associate">Amazon Warehouse Associate</a> (2022 - 2025 Seasonal) &#8226; <a href="https://athenshumanesociety.org/>">Athens Humane Society Volunteer</a> (2025)</p>
+        </div>
     </header>
-    <p class="address">377 Prestwick Drive, Hoschton, GA 30548 &#9633; (817)-404-7430 &#9633; ryanrobinson421@gmail.com</p>
-    <p class="tagline">Aspiring Software Engineer utilizing Cybersecurity skills and AGI technologies.</p>
-    <hr>
 
-    <section class="outline">
-        <h3>Education</h3>
-        <dl>
-            <dt>&nbsp;University of Georgia</dt>
-            <dd>&nbsp;3.95</dd>
-            <dt>&nbsp;Bachelor of Computer Science</dt>
-            <dd>&nbsp;December 2025</dd>
-        </dl>
-    </section>
-
-    <section class="outline">
-        <h3>Honors and Awards</h3>
-        <dl>
-            <dt>&nbsp;Dean's List</dt>
-            <dd>&nbsp;2022 - 2024</dd>
-            <dt>&nbsp;Presidential Scholar</dt>
-            <dd>&nbsp;2023 - 2025</dd>
-        </dl>
-    </section>
-
-    <section class="outline">
+    <section>
         <h3>Skills</h3>
-        <ul>
-            <li>Java</li>
-            <li>Python</li>
-            <li>C#/C++</li>
-            <li>HTML/CSS</li>
-            <li>Git</li>
-            <li>Restful APIs</li>
-            <li>SQL</li>
-            <li>OOP</li>
-            <li>Parallel Processing</li>
-            <li>AGI Imaging</li>
-            <li>Networks</li>
-        </ul>
     </section>
 
-    <section class="outline">
-        <h3>Leadership and Experience</h3>
-        <dl>
-            <dt>
-                &nbsp;<a href="https://amazon.jobs/content/en/job-categories/fulfillment-center-warehouse-associate">Amazon Warehouse Associate</a>
-            </dt>
-            <dd>&nbsp;2022 - 2025 (Seasonal)</dd>
-            <dt>&nbsp;Volunteer at Athens Area Humane Society</dt>
-            <dd>&nbsp;2025</dd>
-        </dl>
+    <section class="skills" id="skills">
+        <!-- JS injection -->
     </section>
     
     <section>
         <h3>Projects</h3>
         <div class="three-col">
-            <div class="card">
+            <div class="card" style="cursor: pointer;" onclick="openNewTab('https://github.com/rrobinson421/EpicMailWebApplication')">
                 <h3>Epic Mail Web Client</h3>
                 <img src="images/proj_img1.jpg" alt="Epic Mail Screenshot" width="600" height="350">
                 <ul class="project-ul">
@@ -83,7 +48,7 @@
                     <li>Conducted manual and automatic testing, improving front-end responsiveness and back-end latency by 25% through iterative profiling and optimization.</li>
                 </ul>
             </div>
-            <div class="card">
+            <div class="card" style="cursor: pointer;" onclick="openNewTab('https://github.com/ComicPuzzle/MoneyMaker')">
                 <h3>Stock Trend and Structure Detecting Software</h3>
                 <img src="images/proj_img2.jpg" alt="Stock Trend Screenshot" width="600" height="350">
                 <ul class="project-ul">
@@ -92,7 +57,7 @@
                     <li>Planning to integrate large language models (LLMs) and AGI technology to further enhance predictive analytics, with the goal of leveraging NLP and generative AI for advanced stock market forecasting and pattern recognition.</li>
                 </ul>
             </div>
-            <div class="card">
+            <div class="card" style="cursor: pointer;" onclick="openNewTab('https://github.com/rrobinson421/FruitSorter')">
                 <h3>Fruit Sorter Desktop Application</h3>
                 <img src="images/proj_img3.jpg" alt="Fruit Sorter Screenshot" width="220" height="400">
                 <ul class="project-ul">
@@ -103,6 +68,6 @@
             </div>
         </div>
     </section>
-    <footer>&copy; <a href="contact.html">&nbsp;Ryan Robinson&nbsp;</a> <a href="https://www.linkedin.com/in/ryan-robinson-b03414290/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></footer>
+    <footer><a href="contact.html">&copy; &nbsp;Ryan Robinson&nbsp;</a> <a href="https://www.linkedin.com/in/ryan-robinson-b03414290/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></footer>
 </body>
 </html>

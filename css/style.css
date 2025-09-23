@@ -2,27 +2,28 @@
 
 
 body {
-  margin: none;
+  margin: 0;
+  position: relative;
 }
 
 /****************   Nav Section **********************/
 nav {
-  background-color: rgb(39 64 96);
+  background-color: rgb(12, 28, 49);
   color: white;
-  outline: 1px solid rgb(255, 255, 255, .5);
 
   display: flex;
   vertical-align: auto;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 20px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(255, 255, 255, .5);
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  padding: 20px 20px;
   display: block;
+  padding: 10px;
 }
 
 nav a:hover {
@@ -38,18 +39,23 @@ nav a[href*="contact"] {
 
 /***********************  Footer Section   **************************/
 footer {
-	background-color: rgb(39 64 96);
+	background-color: rgb(12, 28, 49);
   padding: 1 rem;
-  outline: 1px solid rgb(255, 255, 255, .5);
+  height: auto;
 
   display: flex;
   justify-content: center;
   color: white;
+  height: 50px;
+  border-top: 1px solid rgb(255, 255, 255, .5);
 }
 
 footer a {
   color: white;
   text-decoration: none;
+  display: flex;
+  vertical-align: auto;
+  align-items: center;
 }
 
 footer a:hover {
@@ -59,18 +65,35 @@ footer a:hover {
 
 /*********** Splash Page ************************/
 header {
-    background-color: rgb(39 64 96);
+    background-color: rgb(0, 0, 0);
     color: white;
-    text-align: center;
-    outline: 1px solid rgb(255, 255, 255, .5);
+    display: flex;
+}
+
+header .child {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+header .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header .right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 header h1 {
   font-family: 'Times New Roman', serif;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   color: white;
-  padding-top: 10px;
 }
 
 header img {
@@ -78,33 +101,23 @@ header img {
   margin: 10px 0;
   border: 3px solid white;
   box-shadow: 0 0 10px black;
+  scale: 0.9;
 }
 
 .address {
-  background-color: rgb(39 64 96);
   color: white;
-  text-align: center;
   font-size: 18px;
-  padding: 5px;
-  outline: 1px solid rgb(255, 255, 255, .5);
 }
 
 .tagline {
-  background-color: rgb(39 64 96);
   color: white;
-  text-align: center;
   font-size: 18px;
-  padding: 5px;
-  outline: 1px solid rgb(255, 255, 255, .5);
 }
 
 /************* Sections ********************/
-hr {
-  border: 1px solid rgb(118, 108, 206, .5);
-}
 
 section h3 {
-  background-color: rgb(39 64 96);
+  background-color: rgb(12, 28, 49);
   text-align: center;
   color: white;
   font-family: 'Times New Roman', serif;
@@ -112,7 +125,7 @@ section h3 {
 }
 
 section dl {
-  background-color: rgb(51 92 129);
+  background-color: rgb(12, 28, 49);
   color: white;
   padding: 5px 0;
   display: grid;
@@ -122,7 +135,7 @@ section dl {
 }
 
 section ul {
-  background-color: rgb(51 92 129);
+  background-color: rgb(12, 28, 49);
   color: white;
   list-style-type: circle;
   padding: auto 5px 0 20px 40px;
@@ -151,6 +164,31 @@ section a:hover {
   ;
 }
 
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.skill {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.skill:hover {
+  transform: scale(1.1);
+}
+
 /**************   Projects   *****************/
 .three-col {
 	display: grid;
@@ -174,7 +212,7 @@ section a:hover {
 }
 
 .card {
-  background-color: rgb(51 92 129);
+  background-color: rgb(12, 28, 49);
   height: fit-content;
   border-radius: 10px;
 }
@@ -190,9 +228,10 @@ section a:hover {
 /**************   Responsiveness   *****************/
 @media (max-width: 680px) {
     nav {
-      flex-direction: column;
       text-align: center;
       align-items: center;
+      border-bottom: 1px solid rgb(255, 255, 255, .5);
+      display: block;
     }
 
     .three-col {
@@ -214,7 +253,7 @@ section a:hover {
   margin: 30px auto;
   height: auto;
   padding: 20px;
-  background-color: rgb(51 92 129);
+  background-color: rgb(12, 28, 49);
   border: 2px solid rgb(255, 255, 255, .5);
   color: white;
   outline: auto;
@@ -244,4 +283,8 @@ nav a[href*="index"] {
   outline: 1px solid rgb(255, 255, 255, .5);
   border-radius: 1rem;
   padding: 10px 15px;
+}
+
+.allButFooter {
+  min-height: calc(100vh - 50px);
 }
