@@ -19,31 +19,51 @@ function coinflip() {
     alert("This will be interactable soon.");
 }
 
-const skills = [
-    "test", "test", "test", "test", "test", "test", "test", "test", "test"
-]
+const categorizedSkills = {
+    Languages: ["Java", "C++", "Python", "C#", "C", "SQL", "HTML", "JS"],
+    Frameworks: ["React.js", "Angular", "Node.js", "Django", "Flask", "CSS"],
+    Databases: ["MySQL", "SQLite", "MongoDB", "Data Warehousing"],
+    SoftwareEngineering: ["OOP", "Design Patterns", "Agile", "Full-stack", "Parallel Programming", "Git", "Docker", "Testing"],
+    Networking: ["UDP/TCP/IP", "DNS management", "Routing", "UNIX shell"],
+    Tools: ["VSC", "Android Studio", "Postman", "Slack", "Microsoft", "Cisco Packet Tracer", "Godot", "Google Services"],
+    Development: ["API Development", "Web Design", "Maven", "DevOps"]
+};
+
+const categoryHues = {
+    Languages: 200,
+    Frameworks: 120,
+    Databases: 40,
+    SoftwareEngineering: 240,
+    Networking: 0,
+    Tools: 80,
+    Development: 160
+};
 
 const skillsContainer = document.getElementById("skills");
-skills.forEach(skill => {
-    const div = document.createElement("div");
-    div.classList.add("skill");
-    div.textContent = skill;
+Object.entries(categorizedSkills).forEach(([category, skills]) => {
+    skills.forEach(skill => {
+        const div = document.createElement("div");
+        div.classList.add("skill");
+        div.textContent = skill;
 
-    const hue = 220;
-    const saturation = Math.floor(Math.random() * 30 + 70); //70% - 100%
-    const lightness = Math.floor(Math.random() * 20 + 40); //40% - 60%
-    div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        const hue = categoryHues[category];
+        const saturation = Math.floor(Math.random() * 30 + 70); // 70% - 100%
+        const lightness = Math.floor(Math.random() * 20 + 30); // 40% - 60%
 
-    div.addEventListener("mouseenter", () => {
-        div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness + 10}%)`;
-    });
-    div.addEventListener("mouseleave", () => {
         div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-    });
-    div.addEventListener("click", () => {
-        alert("These will be interactable soon.");
-    });
 
-    skillsContainer.appendChild(div);
+        div.addEventListener("mouseenter", () => {
+            div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness + 10}%)`;
+        });
+        div.addEventListener("mouseleave", () => {
+            div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        });
+        div.addEventListener("click", () => {
+            alert("These will be interactable soon.");
+        });
+
+        skillsContainer.appendChild(div);
+    });
 });
+
 
