@@ -72,24 +72,26 @@ header {
 }
 
 header .child {
-  flex: 1;
   padding: 10px;
   box-sizing: border-box;
 }
 
 header .left {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
 }
 
 header .right {
-  height: 400px;
+  flex: 2;
+  display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
-  text-align: center;
-  padding: auto;
+  align-items: left;
+  flex-direction: column;
+
 }
 
 header h1 {
@@ -233,6 +235,13 @@ section a:hover {
 }
 
 /**************   Responsiveness   *****************/
+@media (min-width: 980px) {
+    .skills {
+      width: 960px;
+      margin: 0 auto;
+    }
+}
+
 @media (max-width: 680px) {
     nav {
       text-align: center;
@@ -247,6 +256,16 @@ section a:hover {
       padding: 10px;
     }
 
+    header {
+      height: 500px;
+    }
+
+}
+
+@media (max-width: 560px) {
+    header {
+      height: 600px;
+    }
 }
 
 /**************   Contact Page   *****************/
