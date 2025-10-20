@@ -17,7 +17,14 @@
     <header>
         <div class="child left">
             <h1>Ryan Robinson</h1>
-            <img src = "images/headshot.jpg" alt = "Ryan Robinson Headshot" width = "250" height = "250" style="cursor: pointer;" onclick="coinflip()">
+            <div class="coin" id="coin">
+                <div class="coin-face tails">
+                    <img src = "images/headshot.jpg" alt = "Ryan Robinson Headshot" width = "250" height = "250" style="cursor: pointer;" onclick="coinflip()">
+                </div>
+                <div class="coin-face heads">
+                    <img src = "images/img_avatar.png" alt = "Ryan Robinson Headshot Alternate" width = "250" height = "250" style="cursor: pointer;" onclick="coinflip()">
+                </div>
+            </div>
         </div>
         <div class="child right">
             <p class="address">377 Prestwick Drive, Hoschton, GA 30548 &#8226; (817)-404-7430 &#8226; ryanrobinson421@gmail.com</p>
@@ -28,13 +35,7 @@
             <div class="dropdown">
             </div>
         </div>
-    </header>
-
-    <section>
-        <h3>Skills</h3>
-    </section>
-
-    <section class="skills" id="skills"></section>    
+    </header> 
     
     <section>
         <h3>Projects</h3>
@@ -69,6 +70,13 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <h3>Skills</h3>
+    </section>
+
+    <section class="skills" id="skills"></section>   
+
     <footer><a href="contact.html">&copy; &nbsp;Ryan Robinson&nbsp;</a>
         <a href="https://www.linkedin.com/in/ryan-robinson-b03414290/" target="_newtab"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;</a>
         <a href="https://github.com/rrobinson421" target="_newtab"><i class="fa fa-github-square" aria-hidden="true"></i></a>

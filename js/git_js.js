@@ -15,8 +15,26 @@ function dailyAlert() {
     }
 }
 
+const coin = document.getElementById("coin");
+let isFlipping = false;
+
 function coinflip() {
-    alert("This will be interactable soon.");
+    if (isFlipping) return; // Prevent multiple flips at once
+    isFlipping = true;
+    coin.classList.add("flipping");
+
+    const isHeads = Math.random() < 0.5;
+    setTimeout(() => {
+        if (isHeads) {
+            coin.classList.remove("tails");
+            coin.classList.add("heads");
+        } else {
+            coin.classList.remove("heads");
+            coin.classList.add("tails");
+        }
+        coin.classList.remove("flipping");
+        isFlipping = false;
+    }, 2000); // Match the duration of the CSS animation
 }
 
 const categorizedSkills = {
@@ -30,13 +48,13 @@ const categorizedSkills = {
 };
 
 const categoryHues = {
-    Languages: 200,
-    Frameworks: 120,
-    Databases: 40,
-    SoftwareEngineering: 240,
-    Networking: 0,
-    Tools: 80,
-    Development: 160
+    Languages: 210, // Blue
+    Frameworks: 240, // Purple
+    Databases: 180, // Teal
+    SoftwareEngineering: 220, // Indigo
+    Networking: 200, // Cyan
+    Tools: 260, // Violet
+    Development: 280 // Magenta-like purple
 };
 
 const skillsContainer = document.getElementById("skills");
@@ -58,12 +76,33 @@ Object.entries(categorizedSkills).forEach(([category, skills]) => {
         div.addEventListener("mouseleave", () => {
             div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
         });
-        div.addEventListener("click", () => {
-            alert("These will be interactable soon.");
-        });
 
         skillsContainer.appendChild(div);
     });
 });
 
+document.addEventListener("mousemove", (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
 
+    document.querySelectorAll(".skill").forEach((skill) => {
+        const rect = skill.getBoundingClientRect();
+        const skillX = rect.left + rect.width / 2;
+        const skillY = rect.top + rect.height / 2;
+
+        const dx = skillX - mouseX;
+        const dy = skillY - mouseY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        const maxDistance = 100; // Distance threshold for avoidance
+        if (distance < maxDistance) {
+            const angle = Math.atan2(dy, dx);
+            const offsetX = Math.cos(angle) * (maxDistance - distance);
+            const offsetY = Math.sin(angle) * (maxDistance - distance);
+
+            skill.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        } else {
+            skill.style.transform = ""; // Reset position if far enough
+        }
+    });
+});
