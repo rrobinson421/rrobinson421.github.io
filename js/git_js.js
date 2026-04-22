@@ -1,108 +1,89 @@
 function openNewTab(url) {
-    window.open(url, "_newtab");
-    dailyAlert()
+  dailyAlert();
+  window.open(url, "_blank");
 }
 
 function dailyAlert() {
-    const today = new Date().toLocaleDateString();
-    const lastAlertDate = localStorage.getItem('lastDailyAlert');
-
-    if (lastAlertDate !== today) {
-        alert("Daily Alert: If some project sites return 404 errors, please contact the user of this page (me) for the project information (it's probably privated right now).");
-        localStorage.setItem('lastDailyAlert', today);
-    } else {
-        return;
-    }
-}
-
-const coin = document.getElementById("coin");
-let isFlipping = false;
-
-function coinflip() {
-    if (isFlipping) return; // Prevent multiple flips at once
-    isFlipping = true;
-    coin.classList.add("flipping");
-
-    const isHeads = Math.random() < 0.5;
-    setTimeout(() => {
-        if (isHeads) {
-            coin.classList.remove("tails");
-            coin.classList.add("heads");
-        } else {
-            coin.classList.remove("heads");
-            coin.classList.add("tails");
-        }
-        coin.classList.remove("flipping");
-        isFlipping = false;
-    }, 2000); // Match the duration of the CSS animation
+  const today = new Date().toLocaleDateString();
+  if (localStorage.getItem("lastDailyAlert") !== today) {
+    alert(
+      "Heads up: some project links may return 404 if currently set to private. " +
+      "Feel free to reach out via the Contact page for details."
+    );
+    localStorage.setItem("lastDailyAlert", today);
+  }
 }
 
 const categorizedSkills = {
-    Languages: ["Java", "C++", "Python", "C#", "C", "SQL", "HTML", "JS"],
-    Frameworks: ["React.js", "Angular", "Node.js", "Django", "Flask", "CSS"],
-    Databases: ["MySQL", "SQLite", "MongoDB", "Data Warehousing"],
-    SoftwareEngineering: ["OOP", "Design Patterns", "Agile", "Full-stack", "Parallel Programming", "Git", "Docker", "Testing"],
-    Networking: ["UDP/TCP/IP", "DNS management", "Routing", "UNIX shell"],
-    Tools: ["VSC", "Android Studio", "Postman", "Slack", "Microsoft", "Cisco Packet Tracer", "Godot", "Google Services"],
-    Development: ["API Development", "Web Design", "Maven", "DevOps"]
+  Languages:           ["Java", "C++", "Python", "C#", "C", "SQL", "HTML", "JavaScript"],
+  Frameworks:          ["React.js", "Angular", "Node.js", "Django", "Flask", "CSS / Tailwind"],
+  Databases:           ["MySQL", "SQLite", "MongoDB", "Data Warehousing"],
+  "Software Engineering": ["OOP", "Design Patterns", "Agile", "Full-stack", "Parallel Programming", "Git", "Docker", "Testing"],
+  Networking:          ["UDP/TCP/IP", "DNS Management", "Routing", "UNIX Shell"],
+  Tools:               ["VS Code", "Android Studio", "Postman", "Slack", "Microsoft Office", "Cisco Packet Tracer", "Godot", "Google Services"],
+  Development:         ["API Development", "Web Design", "Maven", "DevOps"],
 };
 
-const categoryHues = {
-    Languages: 210, // Blue
-    Frameworks: 240, // Purple
-    Databases: 180, // Teal
-    SoftwareEngineering: 220, // Indigo
-    Networking: 200, // Cyan
-    Tools: 260, // Violet
-    Development: 280 // Magenta-like purple
-};
+const coinEl = document.getElementById("coin");
+let isFlipping = false;
 
-const skillsContainer = document.getElementById("skills");
-Object.entries(categorizedSkills).forEach(([category, skills]) => {
-    skills.forEach(skill => {
-        const div = document.createElement("div");
-        div.classList.add("skill");
-        div.textContent = skill;
+function coinflip() {
+  if (!coinEl || isFlipping) return;
+  isFlipping = true;
+  coinEl.classList.add("flipping");
+  coinEl.classList.toggle("flipped");
+  setTimeout(() => {
+    coinEl.classList.remove("flipping");
+    isFlipping = false;
+  }, 2000);
+}
 
-        const hue = categoryHues[category];
-        const saturation = Math.floor(Math.random() * 30 + 70); // 70% - 100%
-        const lightness = Math.floor(Math.random() * 20 + 30); // 40% - 60%
+function buildSkills() {
+  const tabsEl  = document.getElementById("skills-tabs");
+  const panelEl = document.getElementById("skills-panel");
+  if (!tabsEl || !panelEl) return;
 
-        div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  const categories = Object.keys(categorizedSkills);
+  let activeCategory = categories[0];
 
-        div.addEventListener("mouseenter", () => {
-            div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness + 10}%)`;
-        });
-        div.addEventListener("mouseleave", () => {
-            div.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-        });
+  function renderTabs() {
+    tabsEl.innerHTML = "";
+    // "All" button
+    const allBtn = document.createElement("button");
+    allBtn.className = "tab-btn" + (activeCategory === "ALL" ? " active" : "");
+    allBtn.textContent = "All";
+    allBtn.addEventListener("click", () => { activeCategory = "ALL"; renderTabs(); renderPanel(); });
+    tabsEl.appendChild(allBtn);
 
-        skillsContainer.appendChild(div);
+    categories.forEach(cat => {
+      const btn = document.createElement("button");
+      btn.className = "tab-btn" + (activeCategory === cat ? " active" : "");
+      btn.textContent = cat;
+      btn.addEventListener("click", () => { activeCategory = cat; renderTabs(); renderPanel(); });
+      tabsEl.appendChild(btn);
     });
-});
+  }
 
-document.addEventListener("mousemove", (event) => {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
+  function renderPanel() {
+    panelEl.innerHTML = "";
+    const skills =
+      activeCategory === "ALL"
+        ? Object.values(categorizedSkills).flat()
+        : categorizedSkills[activeCategory];
 
-    document.querySelectorAll(".skill").forEach((skill) => {
-        const rect = skill.getBoundingClientRect();
-        const skillX = rect.left + rect.width / 2;
-        const skillY = rect.top + rect.height / 2;
-
-        const dx = skillX - mouseX;
-        const dy = skillY - mouseY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        const maxDistance = 100; // Distance threshold for avoidance
-        if (distance < maxDistance) {
-            const angle = Math.atan2(dy, dx);
-            const offsetX = Math.cos(angle) * (maxDistance - distance);
-            const offsetY = Math.sin(angle) * (maxDistance - distance);
-
-            skill.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-        } else {
-            skill.style.transform = ""; // Reset position if far enough
-        }
+    skills.forEach((skill, i) => {
+      const tag = document.createElement("span");
+      tag.className = "skill-tag";
+      tag.textContent = skill;
+      tag.style.animationDelay = `${i * 35}ms`;
+      panelEl.appendChild(tag);
     });
+  }
+
+  renderTabs();
+  renderPanel();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  buildSkills();
 });

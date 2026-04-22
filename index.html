@@ -3,85 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ryan Robinson — Software Engineer</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="js/git_js.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   </head>
-  <body style="background-color: rgb(0, 0, 0);">
+  <body>
+
+    <!-- ── NAV ── -->
     <nav>
-        <p>Ryan Robinson</p>
-        <a href="contact.html">Contact Ryan Robinson</a>
+      <span class="nav-name">RR</span>
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
     </nav>
-    
+
+    <!-- ── HERO ── -->
     <header>
-        <div class="child left">
-            <h1>Ryan Robinson</h1>
-            <div class="coin" id="coin">
-                <div class="coin-face tails">
-                    <img src = "images/headshot.jpg" alt = "Ryan Robinson Headshot" width = "250" height = "250" style="cursor: pointer;" onclick="coinflip()">
-                </div>
-                <div class="coin-face heads">
-                    <img src = "images/img_avatar.png" alt = "Ryan Robinson Headshot Alternate" width = "250" height = "250" style="cursor: pointer;" onclick="coinflip()">
-                </div>
+      <div class="hero-inner">
+        <div class="hero-photo-wrap">
+          <div class="coin" id="coin">
+            <div class="coin-face tails">
+              <img src="images/headshot.jpg" alt="Ryan Robinson" onclick="coinflip()">
             </div>
+            <div class="coin-face heads">
+              <img src="images/img_avatar.png" alt="Ryan Robinson Avatar" onclick="coinflip()">
+            </div>
+          </div>
+          <p class="photo-hint">Click to flip</p>
         </div>
-        <div class="child right">
-            <p class="address">377 Prestwick Drive, Hoschton, GA 30548 &#8226; (817)-404-7430 &#8226; ryanrobinson421@gmail.com</p>
-            <p class="tagline">Aspiring Software Engineer utilizing Cybersecurity skills and AGI technologies.</p>
-            <p class="tagline">Education: University of Georgia &#8226; 3.95 &#8226; Bachelor of Computer Science &#8226; December 2025</p>
-            <p class="tagline">Honors: Dean's List (2022 - 2024) &#8226; Presidential Scholar (2023 - 2025)</p>
-            <p class="tagline">Experience: <a href="https://amazon.jobs/content/en/job-categories/fulfillment-center-warehouse-associate">Amazon Warehouse Associate</a> (2022 - 2025 Seasonal) &#8226; <a href="https://athenshumanesociety.org/>">Athens Humane Society Volunteer</a> (2025)</p>
-            <div class="dropdown">
-            </div>
+
+        <div class="hero-text">
+          <h1>Ryan Robinson</h1>
+          <p class="hero-role">Software Engineer &amp; Cybersecurity</p>
+          <p class="hero-bio">
+            Computer Science graduate from the University of Georgia (3.95 GPA, Dec 2025) with a
+            focus on full-stack development and emerging AGI technologies.
+          </p>
+          <div class="hero-meta">
+            <span><i class="fa fa-map-marker"></i> Hoschton, GA</span>
+            <span><a href="mailto:ryanrobinson421@gmail.com"><i class="fa fa-envelope"></i> ryanrobinson421@gmail.com</a></span>
+            <span><i class="fa fa-phone"></i> (817) 404-7430</span>
+          </div>
+          <div class="hero-badges">
+            <span class="badge">Dean's List 2022–2024</span>
+            <span class="badge">Presidential Scholar 2023–2025</span>
+            <span class="badge">B.S. Computer Science</span>
+          </div>
+          <div class="hero-links">
+            <a href="https://www.linkedin.com/in/ryan-robinson-b03414290/" target="_blank" class="btn-outline"><i class="fa fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/rrobinson421" target="_blank" class="btn-outline"><i class="fa fa-github"></i> GitHub</a>
+            <a href="contact.html" class="btn-solid">Contact Me</a>
+          </div>
         </div>
-    </header> 
-    
-    <section>
-        <h3>Projects</h3>
-        <div class="three-col">
-            <div class="card" style="cursor: pointer;" onclick="openNewTab('https://github.com/rrobinson421/EpicMailWebApplication')">
-                <h3>Epic Mail Web Client</h3>
-                <img src="images/proj_img1.jpg" alt="Epic Mail Screenshot" width="600" height="350">
-                <ul class="project-ul">
-                    <li>Developed a responsive, single-page email client using React (with TypeScript), styled with Tailwind CSS and custom modules with the collaboration of other contributors.</li>
-                    <li>Led a full-stack team, implementing authentication, inbox management features and a scalable backend with RESTful endpoints routing together the front-end with a SQLite database and Flask.</li>
-                    <li>Applied Agile methodologies to manage feature rollouts and code integration across a distributed team, resulting in a 40% reduction in code integration conflicts and faster iteration cycles.</li>
-                    <li>Conducted manual and automatic testing, improving front-end responsiveness and back-end latency by 25% through iterative profiling and optimization.</li>
-                </ul>
-            </div>
-            <div class="card" style="cursor: pointer;" onclick="openNewTab('https://github.com/ComicPuzzle/MoneyMaker')">
-                <h3>Stock Trend and Structure Detecting Software</h3>
-                <img src="images/proj_img2.jpg" alt="Stock Trend Screenshot" width="600" height="350">
-                <ul class="project-ul">
-                    <li>Collaborating with another contributor to develop a Python-based analytics platform for detecting and visualizing stock market trends and structural breaks using historical candlestick data.</li>
-                    <li>Integrating robust data parsing and visualization routines, including automated HTML report generation and browser-based chart rendering for user-friendly analysis.</li>
-                    <li>Planning to integrate large language models (LLMs) and AGI technology to further enhance predictive analytics, with the goal of leveraging NLP and generative AI for advanced stock market forecasting and pattern recognition.</li>
-                </ul>
-            </div>
-            <div class="card" style="cursor: pointer;" onclick="openNewTab('https://github.com/rrobinson421/FruitSorter')">
-                <h3>Fruit Sorter Desktop Application</h3>
-                <img src="images/proj_img3.jpg" alt="Fruit Sorter Screenshot" width="220" height="400">
-                <ul class="project-ul">
-                    <li>Developed a JavaFX-based desktop application that lets users sort and filter fruits using real-time nutritional data (e.g., sugar, carbs, fiber) based on formally defined statistical thresholds.</li>
-                    <li>Leveraged external RESTful APIs to import various fruit data entries, enabling a more intelligent filtering algorithm based on personalized health goals.</li>
-                    <li>Added integration with local services to show proximity-based fruit availability, providing data-drive shopping assistance, available in all 50 states.</li>
-                </ul>
-            </div>
+      </div>
+    </header>
+
+    <!-- ── SKILLS ── -->
+    <section class="skills-section">
+      <div class="section-inner">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-tabs" id="skills-tabs">
+          <!-- Tab buttons injected by JS -->
         </div>
+        <div class="skills-panel" id="skills-panel">
+          <!-- Skill tags injected by JS -->
+        </div>
+      </div>
     </section>
 
-    <!--
-    <section>
-        <h3>Skills</h3>
+    <!-- ── PROJECTS ── -->
+    <section class="projects-section">
+      <div class="section-inner">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+
+          <article class="card" onclick="openNewTab('https://github.com/rrobinson421/EpicMailWebApplication')">
+            <div class="card-img-wrap">
+              <img src="images/proj_img1.jpg" alt="Epic Mail Screenshot">
+              <span class="card-tag">Full-Stack</span>
+            </div>
+            <div class="card-body">
+              <h3>Epic Mail Web Client</h3>
+              <ul>
+                <li>Built a single-page email client in React + TypeScript, styled with Tailwind CSS.</li>
+                <li>Led a full-stack team, implementing auth, inbox management and a Flask + SQLite backend.</li>
+                <li>Applied Agile methodologies — cut code integration conflicts by 40%.</li>
+                <li>Improved front-end responsiveness and back-end latency by 25% through profiling.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card" onclick="openNewTab('https://github.com/ComicPuzzle/MoneyMaker')">
+            <div class="card-img-wrap">
+              <img src="images/proj_img2.jpg" alt="Stock Trend Screenshot">
+              <span class="card-tag">Data / AI</span>
+            </div>
+            <div class="card-body">
+              <h3>Stock Trend &amp; Structure Detector</h3>
+              <ul>
+                <li>Python analytics platform for visualising stock market trends using candlestick data.</li>
+                <li>Automated HTML report generation and browser-based chart rendering.</li>
+                <li>Planning LLM integration for advanced forecasting and pattern recognition.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card" onclick="openNewTab('https://github.com/rrobinson421/FruitSorter')">
+            <div class="card-img-wrap">
+              <img src="images/proj_img3.jpg" alt="Fruit Sorter Screenshot">
+              <span class="card-tag">Desktop / JavaFX</span>
+            </div>
+            <div class="card-body">
+              <h3>Fruit Sorter Desktop App</h3>
+              <ul>
+                <li>JavaFX app sorting and filtering fruits using real-time nutritional data via RESTful APIs.</li>
+                <li>Filters by personalised health goals with proximity-based fruit availability across all 50 states.</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
 
-    <section class="skills" id="skills"></section>
-    -->
-    
-    <footer><a href="contact.html">&copy; &nbsp;Ryan Robinson&nbsp;</a>
-        <a href="https://www.linkedin.com/in/ryan-robinson-b03414290/" target="_newtab"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;</a>
-        <a href="https://github.com/rrobinson421" target="_newtab"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+    <!-- ── FOOTER ── -->
+    <footer>
+      <span>&copy; 2025 Ryan Robinson</span>
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/ryan-robinson-b03414290/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+        <a href="https://github.com/rrobinson421" target="_blank"><i class="fa fa-github-square"></i></a>
+      </div>
     </footer>
-</body>
+
+  </body>
 </html>
